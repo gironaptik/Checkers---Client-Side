@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ClientDB" Class="ClientGameDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ClientDB.mdf;Integrated Security=True" SettingsObjectName="Client.Properties.Settings" SettingsPropertyName="ClientDBConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TblPlayers" Member="TblPlayers">
+    <Type Name="TblPlayer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NumOfGames" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="TblPlayer_TblGamesByPlayer" Member="TblGamesByPlayers" ThisKey="Id" OtherKey="IdPlayer" Type="TblGamesByPlayer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblGamesByPlayer" Member="TblGamesByPlayers">
+    <Type Name="TblGamesByPlayer">
+      <Column Name="IdGame" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdPlayer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TblPlayer_TblGamesByPlayer" Member="TblPlayer" ThisKey="IdPlayer" OtherKey="Id" Type="TblPlayer" IsForeignKey="true" />
+      <Association Name="TblGame_TblGamesByPlayer" Member="TblGame" ThisKey="IdGame" OtherKey="Id" Type="TblGame" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblGames" Member="TblGames">
+    <Type Name="TblGame">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="TblGame_TblGamesByPlayer" Member="TblGamesByPlayers" ThisKey="Id" OtherKey="IdGame" Type="TblGamesByPlayer" />
+      <Association Name="TblGame_TblTurnsHistory" Member="TblTurnsHistories" ThisKey="Id" OtherKey="GameId" Type="TblTurnsHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblTurnsHistory" Member="TblTurnsHistories">
+    <Type Name="TblTurnsHistory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GameId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TurnNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromIPoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FromJPoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ToIPoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ToJPoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TblGame_TblTurnsHistory" Member="TblGame" ThisKey="GameId" OtherKey="Id" Type="TblGame" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

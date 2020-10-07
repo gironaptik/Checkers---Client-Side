@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ClientGame">
+  <DataContextMoniker Name="/ClientGameDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5e44c024-5cdb-44fb-bd3f-647aaeab5966" absoluteBounds="3.125, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ClientGameDataContext/TblPlayer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c77cd0b5-3db6-40e4-a04f-ed2200d6f35e" absoluteBounds="3.1399999999999997, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78a3f5f4-a177-4654-be2e-f2ff2cdc4f03" absoluteBounds="6.875, 1.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ClientGameDataContext/TblGamesByPlayer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4144f89d-6267-4137-873c-236da337c2c7" absoluteBounds="6.89, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 2.07294840494792); (6.875 : 2.07294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ClientGameDataContext/TblPlayer/TblPlayer_TblGamesByPlayer" />
+      <nodes>
+        <classShapeMoniker Id="5e44c024-5cdb-44fb-bd3f-647aaeab5966" />
+        <classShapeMoniker Id="78a3f5f4-a177-4654-be2e-f2ff2cdc4f03" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="45bcbcf8-8c18-45b6-90d7-c73e402f16ca" absoluteBounds="0.5, 1.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ClientGameDataContext/TblGame" />
+      <nestedChildShapes>
+        <elementListCompartment Id="34acb6f2-b34e-43a1-a2df-e8eb64c19c33" absoluteBounds="0.51499999999999968, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.70119466145833); (6.875 : 2.70119466145833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClientGameDataContext/TblGame/TblGame_TblGamesByPlayer" />
+      <nodes>
+        <classShapeMoniker Id="45bcbcf8-8c18-45b6-90d7-c73e402f16ca" />
+        <classShapeMoniker Id="78a3f5f4-a177-4654-be2e-f2ff2cdc4f03" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0e2f0f04-aa55-4365-b141-5736e306a89c" absoluteBounds="3.75, 3.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ClientGameDataContext/TblTurnsHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71f23256-2b1d-4a64-9b44-b537c345a18e" absoluteBounds="3.765, 4.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 3.1362939453125); (1.5 : 4.95274983723958); (3.75 : 4.95274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClientGameDataContext/TblGame/TblGame_TblTurnsHistory" />
+      <nodes>
+        <classShapeMoniker Id="45bcbcf8-8c18-45b6-90d7-c73e402f16ca" />
+        <classShapeMoniker Id="0e2f0f04-aa55-4365-b141-5736e306a89c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
